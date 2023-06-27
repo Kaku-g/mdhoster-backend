@@ -13,13 +13,13 @@ const databases = new sdk.Databases(client);
 //const ID=new sdk.ID()
 
 const users = new sdk.Users(client);
-const database_id = "64856c71b3f3593d96c7";
+const database_id = process.env.DB_ID;
 
 client
-  .setEndpoint("https://cloud.appwrite.io/v1") // Your API Endpoint
-  .setProject("647c1cac7a45b763e3bb") // Your project ID
+  .setEndpoint(process.env.END_POINT) // Your API Endpoint
+  .setProject(process.env.PROJECT) // Your project ID
   .setKey(
-    "e06f5486d5c45d2797af5358c2ffd4b263ef016b170f026649bdc24343c2a9476d41e5129e8c13ecd755d5b6b89877b2f92fe1c23f44c1cf86d04be004685aaef71de89ae137776c404ae9ce840384468df0a88aa481e8dfe112af68e5e3704d3f3e31cfb5bf1b3175811484f7069a12d2bbcd0a2274c218d5cbc9b98d02bf87"
+   process.env.KEY
   ); // Your secret API key
 
 const createDocument = async (userName, code, attributes, repoName, res) => {
